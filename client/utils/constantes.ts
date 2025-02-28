@@ -1,0 +1,2 @@
+const MAX_FILE_SIZE = 4000000
+export { MAX_FILE_SIZE }
