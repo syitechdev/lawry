@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@vee-validate/nuxt",
     "@pinia/nuxt",
+    "@nuxt/image",
   ],
   app: {
     head: {
