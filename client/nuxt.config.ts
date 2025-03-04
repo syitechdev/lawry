@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
     "@pinia/nuxt",
     "@nuxt/image",
+    "nuxt-auth-sanctum",
   ],
   app: {
     head: {
@@ -25,4 +26,7 @@ export default defineNuxtConfig({
   veeValidate: {
     autoImports: true,
   },
+  sanctum: {
+    baseUrl: process.env.API,
+  }
 });
