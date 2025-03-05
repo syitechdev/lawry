@@ -2,9 +2,7 @@
 import { useTimeout } from "@vueuse/core";
 import { useSasForm } from "~/store/SasForm";
 const ready = useTimeout(500);
-definePageMeta({
-  sanctum: { excluded: true }
-})
+definePageMeta({ sanctum: { excluded: true } })
 const { activeStep: active, steps } = storeToRefs(useSasForm());
 </script>
 

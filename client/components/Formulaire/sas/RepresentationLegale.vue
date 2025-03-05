@@ -16,9 +16,9 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
     <div class="mt-8 mx-10 flex flex-row justify-center">
-        <el-form class="w-1/2">
+        <el-form class="w-1/2" require-asterisk-position="right">
             <div class="flex flex-row gap-2">
-                <el-form-item class="w-2/3" label-position="top" :error="errors.noms">
+                <el-form-item class="w-2/3" label-position="top" :error="errors.noms" :rules="[{ required: true }]">
                     <template #label>
                         <b class="text-red-800">Nom et prénoms du président</b>
                     </template>
@@ -26,7 +26,8 @@ const onSubmit = handleSubmit((values) => {
                         <el-input v-model="form.noms" />
                     </template>
                 </el-form-item>
-                <el-form-item class="w-1/3" label-position="top" :error="errors.telephone">
+                <el-form-item class="w-1/3" label-position="top" :error="errors.telephone"
+                    :rules="[{ required: true }]">
                     <template #label>
                         <b class="text-red-800">Téléphone</b>
                     </template>
@@ -36,7 +37,7 @@ const onSubmit = handleSubmit((values) => {
                 </el-form-item>
             </div>
             <div class="flex flex-row gap-2">
-                <el-form-item class="w-1/2" label-position="top" :error="errors.adresse">
+                <el-form-item class="w-1/2" label-position="top" :error="errors.adresse" :rules="[{ required: true }]">
                     <template #label>
                         <b class="text-red-800">Adresse</b>
                     </template>
@@ -44,7 +45,7 @@ const onSubmit = handleSubmit((values) => {
                         <el-input v-model="form.adresse" />
                     </template>
                 </el-form-item>
-                <el-form-item class="w-1/2" label-position="top" :error="errors.email">
+                <el-form-item class="w-1/2" label-position="top" :error="errors.email" :rules="[{ required: true }]">
                     <template #label>
                         <b class="text-red-800">Email</b>
                     </template>

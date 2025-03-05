@@ -21,9 +21,10 @@ const onSubmit = handleSubmit((values) => {
     <div class="flex w-full justify-center">
         <el-row class="mt-8 px-10 w-4/5" justify="center" :gutter="20">
             <el-col :span="14">
-                <el-form>
+                <el-form require-asterisk-position="right">
                     <div class="flex flex-row gap-2">
-                        <el-form-item class="w-2/3" label-position="top" :error="errors.noms">
+                        <el-form-item class="w-2/3" label-position="top" :error="errors.noms"
+                            :rules="[{ required: true }]">
                             <template #label>
                                 <b class="text-red-800">Nom et prénoms</b>
                             </template>
@@ -31,7 +32,8 @@ const onSubmit = handleSubmit((values) => {
                                 <el-input v-model="form.noms" />
                             </template>
                         </el-form-item>
-                        <el-form-item class="w-1/3" label-position="top" :error="errors.nationalite">
+                        <el-form-item class="w-1/3" label-position="top" :error="errors.nationalite"
+                            :rules="[{ required: true }]">
                             <template #label>
                                 <b class="text-red-800">Nationalité</b>
                             </template>
@@ -41,7 +43,8 @@ const onSubmit = handleSubmit((values) => {
                         </el-form-item>
                     </div>
                     <div class="flex flex-row gap-2">
-                        <el-form-item class="w-4/5" label-position="top" :error="errors.adresse">
+                        <el-form-item class="w-4/5" label-position="top" :error="errors.adresse"
+                            :rules="[{ required: true }]">
                             <template #label>
                                 <b class="text-red-800">Adresse</b>
                             </template>
@@ -49,7 +52,8 @@ const onSubmit = handleSubmit((values) => {
                                 <el-input v-model="form.adresse" />
                             </template>
                         </el-form-item>
-                        <el-form-item class="w-1/5" label-position="top" :error="errors.actions">
+                        <el-form-item class="w-1/5" label-position="top" :error="errors.actions"
+                            :rules="[{ required: true }]">
                             <template #label>
                                 <b class="text-red-800">Actions</b>
                             </template>

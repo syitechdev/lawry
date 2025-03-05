@@ -33,7 +33,8 @@ export default defineNuxtConfig({
       onGuestOnly: '/profile',
     },
     endpoints: {
-      user: 'user'
+      login: 'api/login',
+      logout: 'api/logout'
     },
     globalMiddleware: {
       enabled: true,

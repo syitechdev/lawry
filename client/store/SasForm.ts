@@ -26,9 +26,9 @@ export const useSasForm = defineStore("sas-form", () => {
       component: defineAsyncComponent(() => import("~/components/Formulaire/sas/DocumentPieceJointe.vue")),
     },
   ]);
-  const { values: informationGenerale } = useInformationsForm()
-  const { values: representationLegale } = useRepresentationLegaleForm()
-  const { values: modaliteAdministrative } = useModaliteAdministrativeForm()
+  /*   const { values: informationGenerale } = useInformationsForm()
+    const { values: representationLegale } = useRepresentationLegaleForm()
+    const { values: modaliteAdministrative } = useModaliteAdministrativeForm() */
   let actionnaireFondateur = ref<ActionnairesFondateursForm>([])
   let documentPieceJointe = ref<DocumentSas>({
     projetStatus: undefined,

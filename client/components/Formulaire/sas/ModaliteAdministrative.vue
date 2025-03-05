@@ -14,8 +14,8 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <div class="mt-8 mx-10 flex flex-row justify-center">
-    <el-form class="w-1/2">
-      <el-form-item label-position="top" :error="errors.modeDecision">
+    <el-form class="w-1/2" require-asterisk-position="right">
+      <el-form-item label-position="top" :error="errors.modeDecision" :rules="[{ required: true }]">
         <template #label>
           <b class="text-red-800">Mode de décision</b>
         </template>
@@ -34,7 +34,7 @@ const onSubmit = handleSubmit((values) => {
           </el-radio-group>
         </template>
       </el-form-item>
-      <el-form-item label-position="top" :error="errors.organeGestion">
+      <el-form-item label-position="top" :error="errors.organeGestion" :rules="[{ required: true }]">
         <template #label>
           <b class="text-red-800">Organe de gestion</b>
         </template>

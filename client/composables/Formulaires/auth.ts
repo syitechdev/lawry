@@ -8,7 +8,7 @@ const useLoginForm = () => {
     email: string().optional(),
     password: string().optional()
   }))
-  const { errors, values, handleSubmit, defineField } = useForm({ validationSchema: schema })
+  const { errors, values, handleSubmit, isSubmitting: loading, defineField } = useForm({ validationSchema: schema })
   const [email] = defineField('email')
   const [password] = defineField('password')
 
@@ -20,7 +20,7 @@ const useLoginForm = () => {
       actions.setErrors(fail.response?._data.errors)
     }
   })
-  return { email, password, errors, values, onSubmit }
+  return { email, password, errors, values, loading, onSubmit }
 }
 
 export { useLoginForm }

@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useLoginForm } from '~/composables/Formulaires/auth'
-const { onSubmit, email, password, errors } = useLoginForm()
+const { onSubmit, email, password, errors, loading } = useLoginForm()
 const form = reactive({ email, password })
+
 </script>
 
 <template>
   <div class="flex h-screen flex-col justify-center px-6 py-12 lg:px-8">
-    <el-card class="sm:mx-auto sm:w-full sm:max-w-sm" shadow="always">
+    <el-card v-loading="loading" class="sm:mx-auto sm:w-full sm:max-w-sm" shadow="always">
       <img class="w-[9vw] sm:w-[12vw] mx-auto mb-2" src="/public/logo-lawry.png" alt="lawry logo"></img>
       <el-form class="space-y-6" require-asterisk-position="right">
         <el-form-item class="w-full" label-position="top" :rules="[{ required: true }]" :error="errors.email">
