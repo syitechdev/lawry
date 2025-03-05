@@ -2,6 +2,9 @@
 import { useTimeout } from "@vueuse/core";
 import { useSasForm } from "~/store/SasForm";
 const ready = useTimeout(500);
+definePageMeta({
+  sanctum: { excluded: true }
+})
 const { activeStep: active, steps } = storeToRefs(useSasForm());
 </script>
 
@@ -11,7 +14,7 @@ const { activeStep: active, steps } = storeToRefs(useSasForm());
       <el-row justify="space-between" align="middle">
         <el-image src="/logo-lawry.png" class="w-[170px] sm:w-[250px]" />
         <div class="profile-links">
-          <el-link>Legalshop</el-link>
+          <el-link>Nom d'utilisateur</el-link>
           <el-dropdown class="ml-2" placement="bottom">
             <el-avatar class="profile-avatar">L</el-avatar>
             <template #dropdown>

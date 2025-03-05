@@ -3,37 +3,27 @@ import type { ActionnairesFondateursForm, DocumentSas } from "~/types/globals";
 
 
 export const useSasForm = defineStore("sas-form", () => {
-  const activeStep = ref(3);
+  const activeStep = ref(0);
   const steps = computed(() => [
     {
       title: "Informations Générales",
-      component: defineAsyncComponent(() =>
-        import("~/components/Formulaire/sas/InformationGenerale.vue")
-      ),
+      component: defineAsyncComponent(() => import("~/components/Formulaire/sas/InformationGenerale.vue")),
     },
     {
       title: "Actionnaires Fondateurs",
-      component: defineAsyncComponent(() =>
-        import("~/components/Formulaire/sas/ActionnaireFondateur.vue")
-      ),
+      component: defineAsyncComponent(() => import("~/components/Formulaire/sas/ActionnaireFondateur.vue")),
     },
     {
       title: "Représentation Légale",
-      component: defineAsyncComponent(() =>
-        import("~/components/Formulaire/sas/RepresentationLegale.vue")
-      ),
+      component: defineAsyncComponent(() => import("~/components/Formulaire/sas/RepresentationLegale.vue")),
     },
     {
       title: "Modalités Administratives",
-      component: defineAsyncComponent(() =>
-        import("~/components/Formulaire/sas/ModaliteAdministrative.vue")
-      ),
+      component: defineAsyncComponent(() => import("~/components/Formulaire/sas/ModaliteAdministrative.vue")),
     },
     {
       title: "Documents à joindre",
-      component: defineAsyncComponent(() =>
-        import("~/components/Formulaire/sas/DocumentPieceJointe.vue")
-      ),
+      component: defineAsyncComponent(() => import("~/components/Formulaire/sas/DocumentPieceJointe.vue")),
     },
   ]);
   const { values: informationGenerale } = useInformationsForm()

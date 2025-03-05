@@ -1,14 +1,26 @@
+import type { FetchError } from 'ofetch'
 import { toTypedSchema } from '@vee-validate/zod';
 import { object, string } from "zod";
-const useAuthForm = () => {
+
+const useLoginForm = () => {
+  const { login } = useSanctumAuth()
   const schema = toTypedSchema(object({
-    email: string().email(),
-    password: string().min(6, "Le mot de passe doit contenir au moins 6 caractères")
+    email: string().optional(),
+    password: string().optional()
   }))
   const { errors, values, handleSubmit, defineField } = useForm({ validationSchema: schema })
   const [email] = defineField('email')
   const [password] = defineField('password')
-  return { email, password, errors, values, handleSubmit }
+
+  const onSubmit = handleSubmit(async (values, actions) => {
+    try {
+      await login(values)
+    } catch (error) {
+      const fail = error as FetchError
+      actions.setErrors(fail.response?._data.errors)
+    }
+  })
+  return { email, password, errors, values, onSubmit }
 }
 
-export { useAuthForm }
+export { useLoginForm }

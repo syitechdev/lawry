@@ -28,5 +28,14 @@ export default defineNuxtConfig({
   },
   sanctum: {
     baseUrl: process.env.API,
+    redirect: {
+      onGuestOnly: '/profile',
+    },
+    endpoints: {
+      user: 'user'
+    },
+    globalMiddleware: {
+      enabled: true,
+    },
   }
 });
